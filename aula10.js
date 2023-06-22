@@ -1,4 +1,4 @@
-var prompt = require('prompt-sync')();
+/*var prompt = require('prompt-sync')();
 
 
 let vetorCod = [100,101,102,103,104,105];
@@ -26,5 +26,33 @@ while (vetorCod[i-1] != 999);
 
 
 console.log(`Cod: ${vetorCod[i]}`, `Quantidade: ${quant}`, `Valor: ${total}`);
-valorTotal =+ Number(prompt(`Valor total: ${valorTotal}`));
+valorTotal =+ Number(prompt(`Valor total: ${valorTotal}`));*/
+
+var prompt = require('prompt-sync')(); 
+
+var i = 0;
+var cardapio = { 100: 1.20, 101: 1.30, 102: 1.50, 103: 1.20, 104: 1.30, 105: 1.00 }; 
+var totalPedido = 0; 
+
+
+while (true) { 
+    var cod = Number(prompt('Digite o código desejado ou digite 999 para encerrar o pedido: ')); 
+    if (cod === 999){ 
+        break; 
+    } 
+    if (cod in cardapio){ 
+        var quant = Number(prompt('Digite a quantidade desejada: ')); 
+        var precoItem = cardapio[cod];
+        var valorItem = precoItem * quant; 
+        i++;
+    totalPedido += valorItem; 
+} 
+
+    else{ 
+        console.log('O código é inválido. Tente novamente.'); 
+    } 
+        } 
+
+    console.log(`Valor a ser pago pelo item: R$ ${valorItem}`); 
+    console.log(`Total geral a ser pago: R$ ${totalPedido}`); 
 
